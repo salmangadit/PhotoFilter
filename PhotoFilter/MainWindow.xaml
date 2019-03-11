@@ -1,0 +1,36 @@
+﻿<Window x:Class="PhotoFilter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:photo="clr-namespace:PhotoFilter"
+        x:Name="mainWindow"
+        Title="GaditWorks - PhotoFilter" Height="600" Width="1000" WindowState="Maximized" Background="Black" KeyUp="mainWindow_KeyUp">
+    
+    <Window.Resources>
+        <photo:SelectedConverter x:Key="SelectedConverter"/>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Name="btnPrevious" Height="40" Width="100" Click="btnPrevious_Click" Content="&lt;&lt;"/>
+            <Button Grid.Column="2" Name="btnNext" Height="40"  Width="100" Click="btnNext_Click" Content=">>"/>
+            <Image Grid.Column="1" Name="imgImage" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Name="btnSelect" Width="300" Content="Select" Click="btnSelect_Click" Background="White"/>
+            <Label Grid.Column="0" Name="lblImagesSelected"  Content="Images selected: 0" HorizontalAlignment="Center" Foreground="Red" FontSize="24"   />
+            <Label Grid.Column="2" Name="lblImagesLeft"  Content="Images viewed: 0/0" HorizontalAlignment="Center" Foreground="Red" FontSize="24"   />
+        </Grid>
+    </Grid>
+</Window>
